@@ -8,19 +8,19 @@ models:
     zendesk:
         +materialized: table
         agent_work_time:
-            +materialized: ephemeral
+            +materialized: table
         intermediate:
-            +materialized: ephemeral
+            +materialized: table
         reply_times:
-            +materialized: ephemeral
+            +materialized: table
         resolution_times:
-            +materialized: ephemeral
+            +materialized: table
         sla_policy:
-            +materialized: ephemeral
+            +materialized: table
         ticket_history:
-            +materialized: ephemeral
+            +materialized: table
         utils:
-            +materialized: ephemeral
+            +materialized: table
 
 vars:
     zendesk:
@@ -28,5 +28,4 @@ vars:
         field_history: "{{ ref('stg_zendesk_ticket_field_history') }}"
         ticket: "{{ ref('stg_zendesk_ticket') }}"
         dbt_utils_dispatch_list:
-            - zendesk 
-            - dbt_utils 
+            - zendesk
